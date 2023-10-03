@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spinning Pre-Loader only with CSS3</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+        .loader-wrapper {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            z-index: 1;
+        }
+		
+		@-webkit-keyframes spinner-border {
+			to {
+			-webkit-transform: rotate(360deg);
+			transform: rotate(360deg);
+			}
+		}
+
+		@keyframes spinner-border {
+		to {
+			-webkit-transform: rotate(360deg);
+			transform: rotate(360deg);
+			}
+		}
+		
+
+		.loader::before {
+			content: '';
+			position: absolute;
+			left: -29px;
+			top: -29px;
+			width: 170%;
+			height: 170%;
+			border: 0.15em solid Gold;
+			border-left-color: transparent;
+			border-bottom-color: transparent;
+			border-radius: 50%;
+			-webkit-animation: spinner-border .75s linear infinite;
+			animation: spinner-border .75s linear infinite;
+		}
+        .loader {
+            position: relative;
+            left: 50%;
+            top: 50%;
+            width: 80px;
+            font-size: 20px;
+            padding-top: 30px;
+            padding-bottom: 30px;
+            text-align: center;
+			border: 0.3em solid DodgerBlue;
+			border-radius: 50%;
+			border-right-color: transparent;
+			border-left-color: transparent;
+        }
+		
+		.loader::after {
+			content: '';
+			position: absolute;
+			left: -17px;
+			top: -17px;
+			width: 140%;
+			height: 140%;
+			border: 0.15em solid Crimson;
+			border-right-color: transparent;
+			border-top-color: transparent;
+			border-radius: 50%;
+			-webkit-animation: spinner-border .75s linear infinite;
+			animation: spinner-border .75s linear infinite;
+			animation-direction:reverse;
+		}
+
+    </style>
+</head>
+
+<body>
+    <div class="loader-wrapper">
+        <div class="loader">PolyU</div>
+    </div>
+</body>
+</html>
